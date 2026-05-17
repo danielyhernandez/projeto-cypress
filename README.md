@@ -1,14 +1,20 @@
-🛒 Desafio Cypress — Busca de Produto no Mercado Livre
-Projeto de automação de testes E2E com Cypress, desenvolvido como desafio de aprendizado. O teste valida o fluxo de busca de produtos no Mercado Livre, incluindo navegação entre domínios e scroll progressivo na página de resultados.
+# 🛒 Projeto Cypress. Busca de Produto no Automation Test Store
 
-🧪 Tecnologias
+Projeto de automação de testes E2E com Cypress, desenvolvido como parte dos estudos em QA. O teste valida o fluxo de busca de produtos no Automation Test Store, incluindo scroll progressivo e retorno ao topo da página.
 
-Cypress v15.9.0
-JavaScript
-Node.js
+---
 
+## 🧪 Tecnologias
 
-📁 Estrutura do Projeto
+- [Cypress](https://www.cypress.io/) v15.9.0
+- JavaScript
+- Node.js >= 20
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
 desafio/
 ├── cypress/
 │   ├── e2e/
@@ -22,47 +28,92 @@ desafio/
 ├── cypress.config.js
 ├── package.json
 └── README.md
+```
 
-✅ O que o teste cobre
-EtapaDescriçãoAcesso à homeVisita https://www.mercadolivre.com.brBuscaDigita "notebook" no campo de busca e clica em buscarRedirecionamentoValida que a URL contém "notebook"ListagemConfirma que os produtos foram carregadosScrollRealiza scroll progressivo até o final da página de resultados
+---
 
-⚙️ Configuração
-Pré-requisitos
+## ✅ O que o teste cobre
 
-Node.js >= 20
-npm
+| Etapa | Descrição |
+|---|---|
+| Acesso à home | Visita `https://automationteststore.com` |
+| Busca | Digita "t-shirt" no campo de busca e pressiona Enter |
+| Redirecionamento | Valida que a URL contém "t-shirt" |
+| Listagem | Confirma que os produtos foram carregados |
+| Scroll | Realiza scroll progressivo até o final da página |
+| Retorno ao topo | Volta ao início da página após chegar ao final |
 
-Instalação
-bash# Clone o repositório
-git clone https://github.com/seu-usuario/desafio-cypress.git
+---
+
+## ⚙️ Configuração
+
+### Pré-requisitos
+
+- Node.js `>= 20`
+- npm
+
+### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/projeto-cypress.git
 
 # Acesse a pasta
-cd desafio-cypress
+cd projeto-cypress
 
 # Instale as dependências
 npm install
+```
 
-▶️ Como rodar os testes
-Interface gráfica (recomendado para desenvolvimento)
-bashnpx cypress open
-Linha de comando (modo headless)
-bashnpx cypress run
-Rodar um teste específico
-bashnpx cypress run --spec "cypress/e2e/buscarProduto.cy.js"
+---
 
-🌐 Variáveis de ambiente
-O projeto suporta configuração via variáveis de ambiente:
-VariávelDescriçãoPadrãoCYPRESS_BASE_URLURL base dos testeshttps://www.mercadolivre.com.brCYPRESS_USER_EMAILE-mail do usuário (uso futuro)—CYPRESS_USER_PASSWORDSenha do usuário (uso futuro)—
+## ▶️ Como rodar os testes
+
+### Interface gráfica (recomendado para desenvolvimento)
+
+```bash
+npx cypress open
+```
+
+### Linha de comando (modo headless)
+
+```bash
+npx cypress run
+```
+
+### Rodar um teste específico
+
+```bash
+npx cypress run --spec "cypress/e2e/buscarProduto.cy.js"
+```
+
+---
+
+## 🌐 Variáveis de ambiente
+
+| Variável | Descrição | Padrão |
+|---|---|---|
+| `CYPRESS_BASE_URL` | URL base dos testes | `https://automationteststore.com` |
+| `CYPRESS_USER_EMAIL` | E-mail do usuário (uso futuro) | — |
+| `CYPRESS_USER_PASSWORD` | Senha do usuário (uso futuro) | — |
+
 Exemplo de uso:
-bashCYPRESS_BASE_URL=https://www.mercadolivre.com.br npx cypress run
 
-📝 Observações
+```bash
+CYPRESS_BASE_URL=https://automationteststore.com npx cypress run
+```
 
-O teste usa cy.origin() para lidar com o redirecionamento para lista.mercadolivre.com.br, que é um domínio diferente do ponto de entrada.
-Erros de JavaScript não críticos do site são ignorados via uncaught:exception no e2e.js, o que é esperado ao testar aplicações reais de terceiros.
-O scroll é feito de forma progressiva em passos de 800px com intervalo de 600ms para simular comportamento real do usuário.
+---
 
+## 📝 Observações
 
-👩‍💻 Autora
-Daniely
-Desenvolvido como parte dos estudos em QA automação de testes com Cypress.
+- O scroll é feito de forma progressiva em passos de 400px com intervalo de 1 segundo para simular comportamento real do usuário.
+- Após chegar ao final da página, o teste retorna automaticamente ao topo.
+- Erros de JavaScript não críticos do site são ignorados via `uncaught:exception` no `e2e.js`.
+
+---
+
+## 👩‍💻 Autora
+
+**Daniely**  
+Desenvolvido como parte dos estudos em QA — automação de testes com Cypress.
