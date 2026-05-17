@@ -116,4 +116,4 @@ CYPRESS_BASE_URL=https://automationteststore.com npx cypress run
 ## 👩‍💻 Autora
 
 **Daniely**  
-Desenvolvido como parte dos estudos em QA — automação de testes com Cypress.
+Desenvolvido como parte dos estudos em QA automação de testes com Cypress.
